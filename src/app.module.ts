@@ -7,6 +7,7 @@ import { AeropuertoModule } from './aeropuerto/aeropuerto.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AerolineaEntity } from './aerolinea/aerolinea.entity';
 import { AeropuertoEntity } from './aeropuerto/aeropuerto.entity';
+import { AerolineasAeropuertosModule } from './aerolineas-aeropuertos/aerolineas-aeropuertos.module';
 
 @Module({
   imports: [
@@ -26,7 +27,8 @@ import { AeropuertoEntity } from './aeropuerto/aeropuerto.entity';
       keepConnectionAlive: true
     }),
     AerolineaModule, 
-    AeropuertoModule
+    AeropuertoModule, 
+    AerolineasAeropuertosModule
   ],
   controllers: [AppController],
   providers: [AppService],
