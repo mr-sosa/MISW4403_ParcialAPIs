@@ -3,7 +3,7 @@ import { AeropuertoEntity } from '../aeropuerto/aeropuerto.entity';
 import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class AerolinaEntity {
+export class AerolineaEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
@@ -17,9 +17,9 @@ export class AerolinaEntity {
     fechaFundacion: Date;
 
     @Column()
-    paguinaWeb: string;
+    paginaWeb: string;
 
-    @ManyToMany(() => AeropuertoEntity, aeropuerto => aeropuerto.aerolinas)
+    @ManyToMany(() => AeropuertoEntity, aeropuerto => aeropuerto.aerolineas)
     @JoinTable()
     aeropuertos: AeropuertoEntity[];
 }
