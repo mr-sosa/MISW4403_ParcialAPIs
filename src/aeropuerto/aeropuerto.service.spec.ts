@@ -42,13 +42,13 @@ describe('AeropuertoService', () => {
     };
   }
 
-  it('findAll should return all aeropuertos', async () => {
+  it('findAll should return all airports', async () => {
     const aeropuertos: AeropuertoEntity[] = await service.findAll();
     expect(aeropuertos).not.toBeNull();
     expect(aeropuertos).toHaveLength(aeropuertosList.length);
   });
 
-  it('findOne should return a aeropuerto by id', async () => {
+  it('findOne should return a airport by id', async () => {
     const storedAeropuerto: AeropuertoEntity = aeropuertosList[0];
     const aeropuerto: AeropuertoEntity = await service.findOne(storedAeropuerto.id);
     expect(aeropuerto).not.toBeNull();
@@ -58,11 +58,11 @@ describe('AeropuertoService', () => {
     expect(aeropuerto.ciudad).toEqual(storedAeropuerto.ciudad);
   });
 
-  it('findOne should throw an exception for an invalid aeropuerto', async () => {
-    await expect(() => service.findOne("0")).rejects.toHaveProperty("message", "The aeropuerto with the given id was not found")
+  it('findOne should throw an exception for an invalid airport', async () => {
+    await expect(() => service.findOne("0")).rejects.toHaveProperty("message", "The airport with the given id was not found")
   });
 
-  it('create should return a new aeropuerto', async () => {
+  it('create should return a new airport', async () => {
     const aeropuerto: AeropuertoEntity = {
       id: "",
       nombre: faker.company.name(),
@@ -84,10 +84,10 @@ describe('AeropuertoService', () => {
     expect(aeropuerto.ciudad).toEqual(storedAeropuerto.ciudad);
   });
 
-  it('update should modify a aeropuerto', async () => {
+  it('update should modify a airport', async () => {
     const aeropuerto: AeropuertoEntity = aeropuertosList[0];
     aeropuerto.nombre = faker.company.name();
-    aeropuerto.codigo = faker.random.words(3);
+    aeropuerto.codigo = faker.random.alpha(3);
     aeropuerto.pais = faker.address.country();
     aeropuerto.ciudad = faker.address.city();
 
@@ -102,7 +102,7 @@ describe('AeropuertoService', () => {
     expect(aeropuerto.ciudad).toEqual(storedAeropuerto.ciudad);
   });
 
-  it('update should throw an exception for an invalid aeropuerto', async () => {
+  it('update should throw an exception for an invalid airport', async () => {
     let aeropuerto: AeropuertoEntity = aeropuertosList[0];
     aeropuerto = {
       ...aeropuerto, 
@@ -111,7 +111,7 @@ describe('AeropuertoService', () => {
       pais: faker.address.country(),
       ciudad: faker.address.city(),
     }
-    await expect(() => service.update("0", aeropuerto)).rejects.toHaveProperty("message", "The aeropuerto with the given id was not found")
+    await expect(() => service.update("0", aeropuerto)).rejects.toHaveProperty("message", "The airport with the given id was not found")
   });
 
   it('delete should remove a aeropuerto', async () => {
@@ -121,9 +121,9 @@ describe('AeropuertoService', () => {
     expect(deletedAeropuerto).toBeNull();
   });
 
-  it('delete should throw an exception for an invalid aeropuerto', async () => {
+  it('delete should throw an exception for an invalid airport', async () => {
     const aeropuerto: AeropuertoEntity = aeropuertosList[0];
     await service.delete(aeropuerto.id);
-    await expect(() => service.delete("0")).rejects.toHaveProperty("message", "The aeropuerto with the given id was not found")
+    await expect(() => service.delete("0")).rejects.toHaveProperty("message", "The airport with the given id was not found")
   });
 });

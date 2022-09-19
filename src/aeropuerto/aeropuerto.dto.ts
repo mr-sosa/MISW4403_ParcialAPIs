@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import {IsNotEmpty, IsString} from 'class-validator';
+import {IsNotEmpty, IsString, Length} from 'class-validator';
 
 export class AeropuertoDto {
 
@@ -9,6 +9,7 @@ export class AeropuertoDto {
 
     @IsNotEmpty()
     @IsString()
+    @Length(3,3)
     readonly codigo: string;
 
     @IsNotEmpty()

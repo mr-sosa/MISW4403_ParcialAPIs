@@ -13,11 +13,11 @@ export class AerolineaService {
     ){}
 
     async findAll(): Promise<AerolineaEntity[]> {
-        return await this.aerolineaRepository.find({ relations: ["aerolinea"] });
+        return await this.aerolineaRepository.find({ relations: ["aeropuertos"] });
     }
 
     async findOne(id: string): Promise<AerolineaEntity> {
-        const aerolinea: AerolineaEntity = await this.aerolineaRepository.findOne( { where: {id}, relations: ["aerolinea"] } );
+        const aerolinea: AerolineaEntity = await this.aerolineaRepository.findOne( { where: {id}, relations: ["aeropuertos"] } );
         if (!aerolinea)
             throw new BusinessLogicException("The airline with the given id was not found", BusinessError.NOT_FOUND);
         return aerolinea;

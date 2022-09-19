@@ -57,11 +57,11 @@ describe('AerolineaService', () => {
     expect(aerolinea.paginaWeb).toEqual(storedAerolinea.paginaWeb);
   });
 
-  it('findOne should throw an exception for an invalid aerolinea', async () => {
-    await expect(() => service.findOne("0")).rejects.toHaveProperty("message", "The aerolinea with the given id was not found")
+  it('findOne should throw an exception for an invalid airline', async () => {
+    await expect(() => service.findOne("0")).rejects.toHaveProperty("message", "The airline with the given id was not found")
   });
 
-  it('create should return a new aerolinea', async () => {
+  it('create should return a new airline', async () => {
     const aerolinea: AerolineaEntity = {
       id: "",
       nombre: faker.company.name(),
@@ -76,7 +76,7 @@ describe('AerolineaService', () => {
 
     const storedAerolinea: AerolineaEntity = await repository.findOne({where: {id: newAerolinea.id}})
     expect(aerolinea).not.toBeNull();
-    expect(aerolinea.fechaFundacion).toBeLessThan(Date.now());
+    expect(aerolinea.fechaFundacion.getDate()).toBeLessThan(Date.now());
     expect(aerolinea.nombre).toEqual(storedAerolinea.nombre);
     expect(aerolinea.descripcion).toEqual(storedAerolinea.descripcion);
     expect(aerolinea.fechaFundacion).toEqual(storedAerolinea.fechaFundacion);
@@ -94,14 +94,14 @@ describe('AerolineaService', () => {
     expect(updatedAerolinea).not.toBeNull();
     const storedAerolinea: AerolineaEntity = await repository.findOne({where:{id: aerolinea.id}})
     expect(storedAerolinea).not.toBeNull();
-    expect(aerolinea.fechaFundacion).toBeLessThan(Date.now());
+    expect(aerolinea.fechaFundacion.getDate()).toBeLessThan(Date.now());
     expect(aerolinea.nombre).toEqual(storedAerolinea.nombre);
     expect(aerolinea.descripcion).toEqual(storedAerolinea.descripcion);
     expect(aerolinea.fechaFundacion).toEqual(storedAerolinea.fechaFundacion);
     expect(aerolinea.paginaWeb).toEqual(storedAerolinea.paginaWeb);
   });
 
-  it('update should throw an exception for an invalid aerolinea', async () => {
+  it('update should throw an exception for an invalid airline', async () => {
     let aerolinea: AerolineaEntity = aerolineasList[0];
     aerolinea = {
       ...aerolinea, 
@@ -110,7 +110,7 @@ describe('AerolineaService', () => {
       fechaFundacion: faker.date.past(),
       paginaWeb: faker.internet.url(),
     }
-    await expect(() => service.update("0", aerolinea)).rejects.toHaveProperty("message", "The aerolinea with the given id was not found")
+    await expect(() => service.update("0", aerolinea)).rejects.toHaveProperty("message", "The airline with the given id was not found")
   });
 
   it('delete should remove a aerolinea', async () => {
@@ -120,9 +120,9 @@ describe('AerolineaService', () => {
     expect(deletedAerolinea).toBeNull();
   });
 
-  it('delete should throw an exception for an invalid aerolinea', async () => {
+  it('delete should throw an exception for an invalid airline', async () => {
     const aerolinea: AerolineaEntity = aerolineasList[0];
     await service.delete(aerolinea.id);
-    await expect(() => service.delete("0")).rejects.toHaveProperty("message", "The aerolinea with the given id was not found")
+    await expect(() => service.delete("0")).rejects.toHaveProperty("message", "The airline with the given id was not found")
   });
 });
