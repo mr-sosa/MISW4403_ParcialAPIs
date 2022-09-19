@@ -1,0 +1,843 @@
+{
+	"info": {
+		"_postman_id": "b2de92c9-0aa0-4da6-8fb9-20b900f1793c",
+		"name": "Aerolíneas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12208724"
+	},
+	"item": [
+		{
+			"name": "Crear una aerolínea válida",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"airline_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"VivaAir\",\r\n    \"descripcion\": \"Empresa que...\",\r\n    \"fechaFundacion\": \"2019-04-28T14:45:15\",\r\n    \"paginaWeb\": \"www.google.co\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Base_URL}}/airlines",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una aerolínea válida",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"VivaAir\",\r\n    \"descripcion\": \"Empresa que...\",\r\n    \"fechaFundacion\": \"2019-04-28T14:45:15\",\r\n    \"paginaWeb\": \"www.google.co\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_URL}}/airlines",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "162"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a2-rBUvq0a1h+efGKg+c9o8+XGnGx4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 20:22:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"VivaAir\",\n    \"descripcion\": \"Empresa que...\",\n    \"fechaFundacion\": \"2019-04-28T14:45:15\",\n    \"paginaWeb\": \"www.google.co\",\n    \"id\": \"03820d6e-5fea-4706-bcf3-49174bbc25fb\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear una aerolínea inválida",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"   pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": 1,\r\n    \"fechaFundacion\": \"2019-04-28T14:45:15wefg\",\r\n    \"paginaWeb\": \"wwo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Base_URL}}/airlines",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una aerolínea inválida",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": 1,\r\n    \"fechaFundacion\": \"2019-04-28T14:45:15wefg\",\r\n    \"paginaWeb\": \"wwo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_URL}}/airlines",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "232"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e8-jyVWg86zuFUQgKE3ZHouvVbEXCE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 20:39:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": [\n        \"nombre must be a string\",\n        \"descripcion must be a string\",\n        \"descripcion should not be empty\",\n        \"fechaFundacion must be a valid ISO 8601 date string\",\n        \"paginaWeb must be an URL address\"\n    ],\n    \"error\": \"Bad Request\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todas las aerolíneas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Number of airlines > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}/airlines",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todas las aerolíneas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/airlines",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "186"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ba-FCz7YOmpeaVqKoKodubGOVstsK8\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 20:37:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"4df60e48-b24e-482c-9a74-b9b5fd04bc86\",\n        \"nombre\": \"VivaAir\",\n        \"descripcion\": \"Empresa que...\",\n        \"fechaFundacion\": \"2019-04-28T19:45:15.000Z\",\n        \"paginaWeb\": \"www.google.co\",\n        \"aeropuertos\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener una aerolínea por ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}/airlines/{{airline_id}}",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines",
+						"{{airline_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una aerolínea por ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/airlines/{{airline_id}}",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines",
+								"{{airline_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "184"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b8-BET9xJZM3EObVDy14Uj0rDEKfSw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 20:45:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"898111f6-49cc-400a-830c-457595fdbbe0\",\n    \"nombre\": \"VivaAir\",\n    \"descripcion\": \"Empresa que...\",\n    \"fechaFundacion\": \"2019-04-28T19:45:15.000Z\",\n    \"paginaWeb\": \"www.google.co\",\n    \"aeropuertos\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener una aerolínea por un ID que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The airline with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}/airlines/{{airline_invalid_id}}",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines",
+						"{{airline_invalid_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una aerolínea por un ID que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/airlines/{{airline_invalid_id}}",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines",
+								"{{airline_invalid_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "74"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4a-vvHDeZKvOEs9GVK6dTbXUoTHW8w\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 23:04:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The airline with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar una aerolínea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"VivaAir\",\r\n    \"descripcion\": \"Empresa colombiana que busca....\",\r\n    \"fechaFundacion\": \"2019-04-28T14:45:15\",\r\n    \"paginaWeb\": \"www.vivaair.co\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Base_URL}}/airlines/{{airline_id}}",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines",
+						"{{airline_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar una aerolínea",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"VivaAir\",\r\n    \"descripcion\": \"Empresa colombiana que busca....\",\r\n    \"fechaFundacion\": \"2019-04-28T14:45:15\",\r\n    \"paginaWeb\": \"www.vivaair.co\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_URL}}/airlines/{{airline_id}}",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines",
+								"{{airline_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "181"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b5-fPAnsvy1nMMEfawbKZT1JCeLisM\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 23:07:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"8562a929-f3bb-4145-8df3-bc19a3555770\",\n    \"nombre\": \"VivaAir\",\n    \"descripcion\": \"Empresa colombiana que busca....\",\n    \"fechaFundacion\": \"2019-04-28T14:45:15\",\n    \"paginaWeb\": \"www.vivaair.co\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar una aerolínea con un ID que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The airline with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"VivaAir\",\r\n    \"descripcion\": \"Empresa colombiana que busca....\",\r\n    \"fechaFundacion\": \"2019-04-28T14:45:15\",\r\n    \"paginaWeb\": \"www.vivaair.co\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Base_URL}}/airlines/{{airline_invalid_id}}",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines",
+						"{{airline_invalid_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar una aerolínea con un ID que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"VivaAir\",\r\n    \"descripcion\": \"Empresa colombiana que busca....\",\r\n    \"fechaFundacion\": \"2019-04-28T14:45:15\",\r\n    \"paginaWeb\": \"www.vivaair.co\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_URL}}/airlines/{{airline_invalid_id}}",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines",
+								"{{airline_invalid_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "74"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4a-vvHDeZKvOEs9GVK6dTbXUoTHW8w\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 23:08:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The airline with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar una aerolínea por su ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}/airlines/{{airline_id}}",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines",
+						"{{airline_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar una aerolínea por su ID",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/airlines/{{airline_id}}",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines",
+								"{{airline_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 20:46:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Eliminar una aerolínea con un ID que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The airline with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}/airlines/{{airline_invalid_id}}",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines",
+						"{{airline_invalid_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar una aerolínea con un ID que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/airlines/{{airline_invalid_id}}",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines",
+								"{{airline_invalid_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "74"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4a-vvHDeZKvOEs9GVK6dTbXUoTHW8w\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 23:05:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The airline with the given id was not found\"\n}"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,1149 @@
+{
+	"info": {
+		"_postman_id": "bd096190-7570-42b7-8be9-4de463ea03d6",
+		"name": "Aerolíneas-Aeropuertos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12208724"
+	},
+	"item": [
+		{
+			"name": "Crear una aerolínea válida",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"airline_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"VivaAir\",\r\n    \"descripcion\": \"Empresa que...\",\r\n    \"fechaFundacion\": \"2019-04-28T14:45:15\",\r\n    \"paginaWeb\": \"www.google.co\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Base_URL}}/airlines",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una aerolínea válida",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"VivaAir\",\r\n    \"descripcion\": \"Empresa que...\",\r\n    \"fechaFundacion\": \"2019-04-28T14:45:15\",\r\n    \"paginaWeb\": \"www.google.co\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_URL}}/airlines",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "162"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a2-rBUvq0a1h+efGKg+c9o8+XGnGx4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 20:22:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"VivaAir\",\n    \"descripcion\": \"Empresa que...\",\n    \"fechaFundacion\": \"2019-04-28T14:45:15\",\n    \"paginaWeb\": \"www.google.co\",\n    \"id\": \"03820d6e-5fea-4706-bcf3-49174bbc25fb\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un aeropuerto válido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"airport_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"El dorado\",\r\n    \"codigo\": \"COL\",\r\n    \"pais\": \"Colombia\",\r\n    \"ciudad\": \"Bogotá\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Base_URL}}/airports",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airports"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un aeropuerto válido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"El dorado\",\r\n    \"codigo\": \"COL\",\r\n    \"pais\": \"Colombia\",\r\n    \"ciudad\": \"Bogotá\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_URL}}/airports",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airports"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "118"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"76-IKgvtRCNIMUOJGHB23PQ8R5wUt4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 23:30:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"El dorado\",\n    \"codigo\": \"COL\",\n    \"pais\": \"Colombia\",\n    \"ciudad\": \"Bogotá\",\n    \"id\": \"dba7c075-0222-4804-8e8e-fa03acd298f7\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un aeropuerto 2 válido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"airport_2_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Jose Maria Cordova\",\r\n    \"codigo\": \"COM\",\r\n    \"pais\": \"Colombia\",\r\n    \"ciudad\": \"Medellín\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Base_URL}}/airports",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airports"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un aeropuerto válido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"El dorado\",\r\n    \"codigo\": \"COL\",\r\n    \"pais\": \"Colombia\",\r\n    \"ciudad\": \"Bogotá\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_URL}}/airports",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airports"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "118"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"76-IKgvtRCNIMUOJGHB23PQ8R5wUt4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 23:30:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"El dorado\",\n    \"codigo\": \"COL\",\n    \"pais\": \"Colombia\",\n    \"ciudad\": \"Bogotá\",\n    \"id\": \"dba7c075-0222-4804-8e8e-fa03acd298f7\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Asociar un aeropuerto a una aerolínea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports/{{airport_id}}",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines",
+						"{{airline_id}}",
+						"airports",
+						"{{airport_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar un aeropuerto a una aerolínea",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports/{{airport_id}}",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines",
+								"{{airline_id}}",
+								"airports",
+								"{{airport_id}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "302"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"12e-jm9MTkAcb6QVnInwQ/oLywCwrP8\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Sep 2022 00:05:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"b3af0a9d-3186-4fb5-8dad-230857ae693c\",\n    \"nombre\": \"VivaAir\",\n    \"descripcion\": \"Empresa que...\",\n    \"fechaFundacion\": \"2019-04-28T19:45:15.000Z\",\n    \"paginaWeb\": \"www.google.co\",\n    \"aeropuertos\": [\n        {\n            \"id\": \"5b7aefad-9782-42d1-9b54-d390f0b3b308\",\n            \"nombre\": \"El dorado\",\n            \"codigo\": \"COL\",\n            \"pais\": \"Colombia\",\n            \"ciudad\": \"Bogotá\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Asociar un aeropuerto que no existe a una aerolínea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The airport with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports/{{airport_invalid_id}}",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines",
+						"{{airline_id}}",
+						"airports",
+						"{{airport_invalid_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar un aeropuerto que no existe a una aerolínea",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports/{{airport_invalid_id}}",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines",
+								"{{airline_id}}",
+								"airports",
+								"{{airport_invalid_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "74"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4a-RLtwopeukeJcdNCQI8lVdlt6kCc\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Sep 2022 00:08:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The airport with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los aeropuertos que cubre una aerolínea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines",
+						"{{airline_id}}",
+						"airports"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todos los aeropuertos que cubre una aerolínea",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines",
+								"{{airline_id}}",
+								"airports"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "120"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"78-jGU8gtF2BqAOgfMu1EcEuhV5K7Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Sep 2022 00:11:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"5b7aefad-9782-42d1-9b54-d390f0b3b308\",\n        \"nombre\": \"El dorado\",\n        \"codigo\": \"COL\",\n        \"pais\": \"Colombia\",\n        \"ciudad\": \"Bogotá\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener un aeropuerto asociado a una aerolínea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports/{{airport_id}}",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines",
+						"{{airline_id}}",
+						"airports",
+						"{{airport_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un aeropuerto asociado a una aerolínea",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports/{{airport_id}}",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines",
+								"{{airline_id}}",
+								"airports",
+								"{{airport_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "118"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"76-GrXoiipkCohe0TwM6zBtmWAdqR8\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Sep 2022 00:12:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"5b7aefad-9782-42d1-9b54-d390f0b3b308\",\n    \"nombre\": \"El dorado\",\n    \"codigo\": \"COL\",\n    \"pais\": \"Colombia\",\n    \"ciudad\": \"Bogotá\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un aeropuerto que no esté asociado a una aerolínea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The airport with the given id is not associated to the airline\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports/{{airport_2_id}}",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines",
+						"{{airline_id}}",
+						"airports",
+						"{{airport_2_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un aeropuerto que no esté asociado a una aerolínea",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports/{{airport_2_id}}",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines",
+								"{{airline_id}}",
+								"airports",
+								"{{airport_2_id}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "93"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5d-jbkfoKwgpXKuUZMH0ZNnGFjsDiI\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Sep 2022 00:15:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The airport with the given id is not associated to the airline\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar los aeropuertos que están asociados a una aerolínea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": \"{{airport_2_id}}\",\r\n        \"nombre\": \"Jose Maria Cordova\",\r\n        \"codigo\": \"COM\",\r\n        \"pais\": \"Colombia\",\r\n        \"ciudad\": \"Medellín\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines",
+						"{{airline_id}}",
+						"airports"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar los aeropuertos que están asociados a una aerolínea",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"{{airport_2_id}}\",\r\n        \"nombre\": \"Jose Maria Cordova\",\r\n        \"codigo\": \"COM\",\r\n        \"pais\": \"Colombia\",\r\n        \"ciudad\": \"Medellín\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines",
+								"{{airline_id}}",
+								"airports"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "313"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"139-Y3njMXE6gAF2kYElYWWwhQ9uefA\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Sep 2022 00:18:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"b3af0a9d-3186-4fb5-8dad-230857ae693c\",\n    \"nombre\": \"VivaAir\",\n    \"descripcion\": \"Empresa que...\",\n    \"fechaFundacion\": \"2019-04-28T19:45:15.000Z\",\n    \"paginaWeb\": \"www.google.co\",\n    \"aeropuertos\": [\n        {\n            \"id\": \"4918e747-3636-439a-8a75-c6a17622365d\",\n            \"nombre\": \"Jose Maria Cordova\",\n            \"codigo\": \"COM\",\n            \"pais\": \"Colombia\",\n            \"ciudad\": \"Medellín\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar los aeropuertos asociados a una aerolínea, con un aeropuerto inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The airport with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": \"{{airport_invalid_id}}\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines",
+						"{{airline_id}}",
+						"airports"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar los aeropuertos asociados a una aerolínea, con un aeropuerto inexistente",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"{{airport_invalid_id}}\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines",
+								"{{airline_id}}",
+								"airports"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "74"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4a-RLtwopeukeJcdNCQI8lVdlt6kCc\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Sep 2022 00:21:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The airport with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar un aeropuerto previamente asociado a una aerolínea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports/{{airport_2_id}}",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines",
+						"{{airline_id}}",
+						"airports",
+						"{{airport_2_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un aeropuerto previamente asociado a una aerolínea",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports/{{airport_2_id}}",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines",
+								"{{airline_id}}",
+								"airports",
+								"{{airport_2_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Sep 2022 00:22:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Eliminar un aeropuerto que no estaba previamente asociado a una aerolínea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The airport with the given id is not associated to the airline\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports/{{airport_id}}",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"airlines",
+						"{{airline_id}}",
+						"airports",
+						"{{airport_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un aeropuerto que no estaba previamente asociado a una aerolínea",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/airlines/{{airline_id}}/airports/{{airport_id}}",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"airlines",
+								"{{airline_id}}",
+								"airports",
+								"{{airport_id}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "93"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5d-jbkfoKwgpXKuUZMH0ZNnGFjsDiI\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Sep 2022 00:23:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The airport with the given id is not associated to the airline\"\n}"
+				}
+			]
+		}
+	]
+}
